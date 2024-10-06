@@ -22,4 +22,39 @@ function getHumanChoice() {
   }
 }
 
-let humanScore = 0, computerScore = 0;
+let humanScore = 0,
+  computerScore = 0;
+
+function playRound(
+  humanChoice = getHumanChoice(),
+  computerChoice = getComputerChoice()
+) {
+  // Both human and computer choice same
+  if (humanChoice == computerChoice) {
+    console.log("It's a Tie");
+  }
+
+  //   Human Losing
+  if (humanChoice == "rock" && computerChoice == "paper") {
+    console.log("You lose! Paper beats Rock.");
+    computerScore++;
+  } else if (humanChoice == "paper" && computerChoice == "scissors") {
+    console.log("You lose! Scissors beats Paper.");
+    computerScore++;
+  } else if ((humanChoice = "scissors" && computerChoice == "rock")) {
+    console.log("You lose! Rock beats Scissors.");
+    computerScore++;
+  }
+
+  // Human Winning
+  if (humanChoice == "rock" && computerChoice == "scissors") {
+    console.log("You win! Rock beats scissors.");
+    humanScore++;
+  } else if (humanChoice == "paper" && computerChoice == "rock") {
+    console.log("You win! Paper beats rock.");
+    humanScore++;
+  } else if (humanChoice == "scissors" && computerChoice == "paper") {
+    console.log("You win! Scissors beats paper.");
+    humanScore++;
+  }
+}
