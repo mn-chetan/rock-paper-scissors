@@ -21,3 +21,5 @@ function getHumanChoice() {
     return "scissors";
   }
 }
+
+let humanScore = 0, computerScore = 0;
