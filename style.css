@@ -43,3 +43,9 @@
   justify-content: center;
   align-items: center;
 }
+
+.current-result {
+  width: 300px;
+  display: flex;
+  justify-content: center;
+}
