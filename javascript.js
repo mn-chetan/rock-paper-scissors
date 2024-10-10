@@ -11,15 +11,34 @@ function getHumanChoice() {
   const buttons = document.querySelectorAll(".choice button");
   buttons.forEach((button) =>
     button.addEventListener("click", (e) => {
-      // insert the player's choice on screen
+      // get reference to class player and computer
       const player = document.querySelector(".player");
+      const computer = document.querySelector(".computer");
+
+      // get reference to player and computer result
+      const playerResult = document.querySelector(".player-result");
+      const computerResult = document.querySelector(".computer-result");
+
+      // reset player and computer choice after every click
+      const playerChoice = document.querySelector(".player-choice");
+      const computerChoice = document.querySelector(".computer-choice");
+      const playerRunningScore = document.querySelector(".player-score");
+      const computerRunningScore = document.querySelector(".computer-score");
+
+      if (playerChoice !== null) {
+        player.removeChild(playerChoice);
+        computer.removeChild(computerChoice);
+        playerResult.removeChild(playerRunningScore);
+        computerResult.removeChild(computerRunningScore);
+      }
+
+      // insert the player's choice on screen
       const paraPlayer = document.createElement("p");
       paraPlayer.textContent = e.target.textContent;
       paraPlayer.classList.toggle("player-choice");
       player.appendChild(paraPlayer);
 
       // after player has chosen, randomly generate rock, paper or scissor as computer choice
-      const computer = document.querySelector(".computer");
       const paraComputer = document.createElement("p");
       paraComputer.textContent = getComputerChoice();
       paraComputer.classList.toggle("computer-choice");
@@ -28,12 +47,12 @@ function getHumanChoice() {
       // display running score
 
       // to display player score
-      const playerResult = document.querySelector(".player-result");
       const paraResultPlayer = document.createElement("p");
+      paraResultPlayer.classList.toggle("player-score");
 
       // to display computer score
-      const computerResult = document.querySelector(".computer-result");
       const paraResultComputer = document.createElement("p");
+      paraResultComputer.classList.toggle("computer-score");
 
       const result = calculateScore(
         paraPlayer.textContent,
@@ -60,3 +79,5 @@ function calculateScore(playerChoice, computerChoice) {
     humanScore++;
   else computerScore++;
 }
+
+getHumanChoice();
