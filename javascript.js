@@ -24,6 +24,39 @@ function getHumanChoice() {
       paraComputer.textContent = getComputerChoice();
       paraComputer.classList.toggle("computer-choice");
       computer.appendChild(paraComputer);
+
+      // display running score
+
+      // to display player score
+      const playerResult = document.querySelector(".player-result");
+      const paraResultPlayer = document.createElement("p");
+
+      // to display computer score
+      const computerResult = document.querySelector(".computer-result");
+      const paraResultComputer = document.createElement("p");
+
+      const result = calculateScore(
+        paraPlayer.textContent,
+        paraComputer.textContent
+      );
+      paraResultPlayer.textContent = humanScore;
+      paraResultComputer.textContent = computerScore;
+      playerResult.appendChild(paraResultPlayer);
+      computerResult.appendChild(paraResultComputer);
     })
   );
+}
+
+let humanScore = 0,
+  computerScore = 0;
+function calculateScore(playerChoice, computerChoice) {
+  if (playerChoice === computerChoice) return; // in case of tie
+
+  if (
+    (playerChoice === "Rock" && computerChoice === "Scissors") ||
+    (playerChoice === "Paper" && computerChoice === "Rock") ||
+    (playerChoice === "Scissors" && computerChoice === "Paper")
+  )
+    humanScore++;
+  else computerScore++;
 }
