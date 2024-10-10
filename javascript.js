@@ -15,12 +15,14 @@ function getHumanChoice() {
       const player = document.querySelector(".player");
       const paraPlayer = document.createElement("p");
       paraPlayer.textContent = e.target.textContent;
+      paraPlayer.classList.toggle("player-choice");
       player.appendChild(paraPlayer);
 
       // after player has chosen, randomly generate rock, paper or scissor as computer choice
       const computer = document.querySelector(".computer");
       const paraComputer = document.createElement("p");
       paraComputer.textContent = getComputerChoice();
+      paraComputer.classList.toggle("computer-choice");
       computer.appendChild(paraComputer);
     })
   );
