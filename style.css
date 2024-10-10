@@ -44,11 +44,6 @@
   align-items: center;
 }
 
-.current-result {
-  display: flex;
-  justify-content: center;
-}
-
 .player-result,
 .computer-result {
   display: flex;
