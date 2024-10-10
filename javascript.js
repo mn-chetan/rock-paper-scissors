@@ -62,6 +62,9 @@ function getHumanChoice() {
       paraResultComputer.textContent = computerScore;
       playerResult.appendChild(paraResultPlayer);
       computerResult.appendChild(paraResultComputer);
+
+      // display winner
+      displayWinner();
     })
   );
 }
@@ -80,4 +83,15 @@ function calculateScore(playerChoice, computerChoice) {
   else computerScore++;
 }
 
-getHumanChoice();
+function displayWinner() {
+  if (humanScore === 5 && humanScore > computerScore)
+    alert("You won the game!");
+  else if (computerScore === 5 && computerScore > humanScore)
+    alert("Computer won the game!");
+}
+
+function playGame() {
+  getHumanChoice();
+}
+
+playGame();
